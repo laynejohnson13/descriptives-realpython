@@ -524,3 +524,96 @@ r
 
 r = y__.corr(x__)
 r
+
+
+
+### 2D numpy array 
+a = np.array([[1, 1, 1],
+              [2, 3, 1],
+              [4, 9, 2],
+              [8, 27, 4],
+              [16, 1, 1]])
+a
+
+np.mean(a)
+
+a.mean()
+
+np.median(a)
+
+a.var(ddof=1)
+
+
+##Numpy mean with different axis 
+np.mean(a, axis=0)
+
+a.mean(axis=0)
+
+np.mean(a, axis=1)
+
+a.mean(axis=1)
+
+np.median(a, axis=0)
+
+np.median(a, axis=1)
+
+a.var(axis=0, ddof=1)
+
+a.var(axis=1, ddof=1)
+
+
+##Scipy with different axis
+scipy.stats.gmean(a)  # Default: axis=0
+
+scipy.stats.gmean(a, axis=0)
+
+scipy.stats.gmean(a, axis=1)
+
+scipy.stats.gmean(a, axis=None)
+
+
+###2D Scipy
+scipy.stats.describe(a, axis=None, ddof=1, bias=False)
+
+scipy.stats.describe(a, ddof=1, bias=False)  # Default: axis=0
+
+scipy.stats.describe(a, axis=1, ddof=1, bias=False)
+
+
+result = scipy.stats.describe(a, axis=1, ddof=1, bias=False)
+result.mean
+
+
+###Dataframes
+row_names = ['first', 'second', 'third', 'fourth', 'fifth']
+col_names = ['A', 'B', 'C']
+df = pd.DataFrame(a, index=row_names, columns=col_names)
+df
+
+
+##DF mean/variance
+df.mean()
+
+df.var()
+
+df.mean(axis=1)
+
+df.var(axis=1)
+
+df['A']
+
+df['A'].mean()
+
+df['A'].var()
+
+
+df.values
+
+
+df.to_numpy()
+
+df.describe()
+
+df.describe().at['mean', 'A']
+
+df.describe().at['50%', 'B']
